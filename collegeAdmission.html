@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Admission</title>
+  <style>
+    /* Colors, borders, hover effects, responsive design */
+    body { font-family: Arial, sans-serif; margin:0; }
+    header { background:#004080; color:white; text-align:center; padding:15px; }
+    nav ul { list-style:none; display:flex; justify-content:center; background:#eee; margin:0; padding:10px; }
+    nav ul li { margin:0 15px; }
+    nav ul li a { text-decoration:none; color:#004080; }
+    nav ul li a:hover { color:#ff6600; }
+    form { max-width:500px; margin:20px auto; padding:20px; border:1px solid #ccc; }
+    input, select, textarea { width:100%; margin:10px 0; padding:8px; }
+    button { background:#004080; color:white; padding:10px; border:none; cursor:pointer; }
+    button:hover { background:#ff6600; }
+    footer { background:#004080; color:white; text-align:center; padding:10px; margin-top:20px; }
+    @media (max-width:600px){ nav ul { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <!-- College logo and title -->
+  <header>
+    <img src="logo.png" alt="College Logo" style="height:60px;">
+    <h1>XYZ College Admission Portal</h1>
+  </header>
+
+  <!-- Navigation menu -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Admission</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Admission form -->
+  <form onsubmit="return validateForm()">
+    <label>Name:</label><input type="text" required>
+    <label>Email:</label><input type="email" required>
+    <label>Mobile:</label><input type="tel" id="mobile" pattern="[0-9]{10}" required>
+    <label>Course:</label>
+    <select><option>BCA</option><option>MCA</option></select>
+    <label>Gender:</label>
+    <select><option>Male</option><option>Female</option></select>
+    <label>Address:</label><textarea></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Footer -->
+  <footer>
+    <p>XYZ College, Pune | © 2026</p>
+  </footer>
+
+  <script>
+    // Validation for mobile number
+    function validateForm(){
+      let mobile = document.getElementById("mobile").value;
+      if(!/^\d{10}$/.test(mobile)){
+        alert("Enter valid 10-digit mobile number");
+        return false;
+      }
+alert("Successfully Submitted!");
+      return true;
+    }
+  </script>
+</body>
+</html>
